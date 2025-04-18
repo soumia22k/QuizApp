@@ -1,0 +1,139 @@
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css");
+
+.navbar {
+  background: rgba(93, 95, 239, 0.85);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  padding: 0;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
+.container-fluid {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: 1200px;
+  padding: 0 20px;
+  margin: 0 auto;
+}
+
+.navbar-brand {
+  color: #ffffff;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  font-size: 1.5rem;
+  transition: transform 0.3s ease;
+}
+
+.navbar-brand:hover {
+  transform: scale(1.05);
+}
+
+.nav-menu {
+  display: flex;
+  margin-left: auto;
+}
+
+.nav-item {
+  color: #e5e7eb;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+  height: 60px;
+  font-size: 0.95rem;
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.nav-item i {
+  margin-right: 10px;
+  font-size: 1.2rem;
+}
+
+.nav-item:hover {
+  background: rgba(255, 255, 255, 0.15);
+  color: #ffffff;
+}
+
+.nav-item.active {
+  background: rgba(255, 255, 255, 0.25);
+  color: #ffffff;
+}
+
+.nav-item.active::after {
+  content: '';
+  position: absolute;
+  bottom: 10px;
+  left: 20px;
+  width: calc(100% - 40px);
+  height: 2px;
+  background: #60a5fa;
+}
+
+.hamburger {
+  display: none;
+  background: none;
+  border: none;
+  color: #ffffff;
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.hamburger:hover {
+  transform: scale(1.1);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .nav-menu {
+    position: fixed;
+    top: 60px;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    background: rgba(93, 95, 239, 0.95);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    transform: translateY(-100%);
+    transition: transform 0.3s ease-in-out;
+    z-index: 999;
+  }
+
+  .nav-menu.show {
+    transform: translateY(0);
+  }
+
+  .nav-item {
+    height: 50px;
+    justify-content: center;
+    padding: 0;
+    width: 100%;
+    text-align: center;
+  }
+
+  .nav-item i {
+    margin-right: 8px;
+  }
+
+  .hamburger {
+    display: block;
+  }
+}
+
+@media (min-width: 769px) {
+  .nav-menu {
+    transform: none !important;
+  }
+}

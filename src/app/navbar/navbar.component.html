@@ -1,0 +1,43 @@
+<nav class="navbar fixed-top">
+  <div class="container-fluid">
+    <!-- Logo -->
+    <a class="navbar-brand">ENAA-Quizizz</a>
+
+    <!-- Hamburger Toggle for Mobile -->
+    <button class="hamburger" (click)="toggleMenu()" aria-label="Toggle navigation">
+      <i class="bi" [ngClass]="isMenuOpen ? 'bi-x' : 'bi-list'"></i>
+    </button>
+
+    <!-- Navigation Menu -->
+    <div class="nav-menu" [ngClass]="{ 'show': isMenuOpen }">
+      <a
+        class="nav-item"
+        routerLink='/'
+        routerLinkActive="active"
+        [routerLinkActiveOptions]="{ exact: true }"
+        (click)="closeMenu()"
+      >
+        <i class="bi bi-house-door"></i>
+        <span>Accueil</span>
+      </a>
+      <a
+        class="nav-item"
+        [routerLink]="['/historique']"
+        routerLinkActive="active"
+        (click)="closeMenu()"
+      >
+        <i class="bi bi-clock-history"></i>
+        <span>Historique</span>
+      </a>
+      <a
+        class="nav-item"
+        [routerLink]="['/parametres']"
+        routerLinkActive="active"
+        (click)="closeMenu()"
+      >
+        <i class="bi bi-gear"></i>
+        <span>Paramètres</span>
+      </a>
+    </div>
+  </div>
+</nav>
