@@ -1,1 +1,50 @@
-<p>quiz works!</p>
+<div class="quiz-container">
+    <div *ngIf="!quizCompleted && questions.length" class="quiz-in-progress">
+      <div class="quiz-header">
+        <div class="quiz-meta">
+          <span class="score">Score: {{ score }}</span>
+          <span class="progress">
+            Question {{ currentQuestionIndex + 1 }}/{{ questions.length }}
+          </span>
+        </div>
+        
+        <div class="progress-bar-container">
+          <div class="progress-bar" [style.width.%]="progress"></div>
+        </div>
+      </div>
+  
+      <div class="question-container">
+        <h3>{{ questions[currentQuestionIndex].category }}</h3>
+        <h2 [innerHTML]="questions[currentQuestionIndex].question"></h2>
+        
+        <div class="answers">
+          <button 
+            *ngFor="let answer of questions[currentQuestionIndex].all_answers"
+            (click)="selectAnswer(answer)"
+            [class.selected]="selectedAnswer === answer"
+            class="answer-btn"
+            [innerHTML]="answer">
+          </button>
+        </div>
+      </div>
+  
+      <button 
+        (click)="submitAnswer()" 
+        [disabled]="!selectedAnswer"
+        class="submit-btn">
+        {{ currentQuestionIndex < questions.length - 1 ? 'Question suivante' : 'Terminer' }}
+      </button>
+    </div>
+  
+    <div class="quiz-container">
+  <!-- ... autres parties inchangées ... -->
+  
+  <div *ngIf="quizCompleted" class="quiz-results">
+    <h2>Quiz Terminé !</h2>
+    <p class="score">Votre score: {{ score }}/{{ questions.length }}</p>
+    <button (click)="goToHome()" class="restart-btn">
+      Retour à l'accueil
+    </button>
+  </div>
+</div>
+  </div>

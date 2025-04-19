@@ -14,9 +14,11 @@
   
   .hero {
     margin-bottom: 50px;
+    
   }
   
   .title {
+    text-align : center;
     font-size: 3rem;
     font-weight: 700;
     color: #0a2540;
@@ -29,15 +31,8 @@
     margin-bottom: 15px;
   }
   
-  .hero-badge {
-    display: inline-block;
-    background-color: #0077ff;
-    color: white;
-    padding: 8px 18px;
-    border-radius: 25px;
-    font-weight: bold;
-    font-size: 0.9rem;
-  }
+ 
+
   
   .quiz-card {
     background: rgba(255, 255, 255, 0.8);
